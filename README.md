@@ -4,6 +4,8 @@ This plugin adds syntax highlighting and some sensible options for
 in your configured editor when you run `jj describe`, so you can write a
 description for your change.
 
+![Screenshot showing the syntax highlighting](./images/screenshot.webp)
+
 ## Installation
 Use your favorite plugin manager to install the `avm99963/vim-jjdescription`
 plugin. For instance, with [vim-plug][2] you should add the following to the
