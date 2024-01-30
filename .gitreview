@@ -1,0 +1,5 @@
+[gerrit]
+host=gerrit.avm99963.com
+port=29418
+project=vim/jjdescription
+defaultbranch=main
