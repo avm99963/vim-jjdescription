@@ -3,7 +3,7 @@
 " Maintainer:	Adrià Vilanova <me@avm99963.com>
 " Filenames:	*.jjdescription
 " Source: Based on syntax/gitcommit.vim
-" Last Change:	2024 Jan 30
+" Last Change:	2024 Oct 26
 
 if exists("b:current_syntax")
   finish
@@ -32,12 +32,13 @@ syn match   jjdescriptionComment "^JJ: .*"
 
 syn match   jjdescriptionHeader	"\%(^JJ: \)\@<=\S.*:\%(\n^$\)\@!$" contained containedin=jjdescriptionComment
 
-syn match   jjdescriptionType		"\%(^JJ:\s\+\)\@<=[MADR]\ze " contained containedin=jjdescriptionComment nextgroup=jjdescriptionFile skipwhite
+" Sigils extracted from https://github.com/martinvonz/jj/blob/95283dd04f7047c48356de1addd3d59d35ec5bce/cli/src/diff_util.rs#L1542.
+syn match   jjdescriptionType		"\%(^JJ:\s\+\)\@<=[CRMAD]\ze " contained containedin=jjdescriptionComment nextgroup=jjdescriptionFile skipwhite
 syn match   jjdescriptionFile		".*" contained
 
-syn region  jjdescriptionSelected	start=/^\z(^JJ: \)This commit contains the following changes:$/ end=/^\z1$\|^\z1\@!/ contains=jjdescriptionHeader,jjdescriptionSelectedType containedin=jjdescriptionComment containedin=jjdescriptionComment contained transparent fold
+syn region  jjdescriptionSelected	start=/^\z(^JJ: \)This commit contains the following changes:$/ end=/^\z1$\|^\z1\@!/ contains=jjdescriptionHeader,jjdescriptionSelectedType containedin=jjdescriptionComment contained transparent fold
 
-syn match   jjdescriptionSelectedType		"\%(^JJ:\s\+\)\@<=[MADR]\ze " contained nextgroup=jjdescriptionSelectedFile skipwhite
+syn match   jjdescriptionSelectedType		"\%(^JJ:\s\+\)\@<=[CRMAD]\ze " contained nextgroup=jjdescriptionSelectedFile skipwhite
 syn match   jjdescriptionSelectedFile	".*" contained
 
 hi def link jjdescriptionSummary		Keyword
